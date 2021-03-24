@@ -3,9 +3,11 @@ const dotenv = require('dotenv');
 const path = require('path');
 const { healthRouter, testRouter } = require('./src/routes');
 
-dotenv.config({
-  path: path.resolve(__dirname, `.${process.env.NODE_APP_ENV}.env`),
-});
+if (process.env.NODE_APP_ENV === 'local') {
+  dotenv.config({
+    path: path.resolve(__dirname, `.${process.env.NODE_APP_ENV}.env`),
+  });
+} else dotenv.config();
 
 const app = express();
 
