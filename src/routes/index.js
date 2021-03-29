@@ -1,4 +1,4 @@
 const { healthRouter } = require('./health.route');
-const { testRouter } = require('./test.route');
+const { cmsRouter } = require('./cms.route');
 
-module.exports = { healthRouter, testRouter };
+module.exports = { healthRouter, cmsRouter };

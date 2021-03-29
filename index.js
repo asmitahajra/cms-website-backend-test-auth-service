@@ -3,7 +3,7 @@ const dotenv = require('dotenv');
 const path = require('path');
 const cors = require('cors');
 
-const { healthRouter, testRouter } = require('./src/routes');
+const { healthRouter, cmsRouter } = require('./src/routes');
 
 if (process.env.NODE_APP_ENV === 'local') {
   dotenv.config({
@@ -19,7 +19,7 @@ app.use(express.json());
 
 app.use(cors());
 app.use('/health', healthRouter);
-app.use('/test', testRouter);
+app.use('/cms', cmsRouter);
 
 app.listen(port, () => {
   console.log(`Server is up at ${port}`);

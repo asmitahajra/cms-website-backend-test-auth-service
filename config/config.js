@@ -13,13 +13,6 @@ if (process.env.NODE_APP_ENV === 'local') {
   });
 } else dotenv.config();
 
-// if (process.env.NODE_APP_ENV === 'local') {
-//   const pathRoot = `${appRoot}/`;
-//   dotenv.config({
-//     path: path.resolve(appRoot.path, `${process.env.NODE_APP_ENV}.env`),
-//   });
-// } else dotenv.config();
-
 module.exports = {
   development: {
     username: process.env.DB_USERNAME,

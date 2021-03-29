@@ -1,17 +1,17 @@
 module.exports = {
   up: async (queryInterface, Sequelize) => {
-    await queryInterface.createTable('Demos', {
+    await queryInterface.createTable('ContentTypes', {
       id: {
         allowNull: false,
         autoIncrement: true,
         primaryKey: true,
         type: Sequelize.INTEGER,
       },
-      title: {
+      name: {
         type: Sequelize.STRING,
       },
-      status: {
-        type: Sequelize.STRING,
+      fields: {
+        type: Sequelize.ARRAY(Sequelize.TEXT),
       },
       createdAt: {
         allowNull: false,
@@ -24,6 +24,6 @@ module.exports = {
     });
   },
   down: async (queryInterface, Sequelize) => {
-    await queryInterface.dropTable('Demos');
+    await queryInterface.dropTable('ContentTypes');
   },
 };
