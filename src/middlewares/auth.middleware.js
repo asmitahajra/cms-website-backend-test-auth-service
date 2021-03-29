@@ -5,8 +5,14 @@ const authenticateJwt = async (req, res, next) => {
   if (authHeader) {
     const jwtToken = authHeader.split(' ')[1];
     try {
+      // console.log('What');
       const userData = await authService.verifyToken(jwtToken);
-      req.user = userData;
+      // console.log(userData);
+      // console.log('-----');
+      req.userInformation = userData;
+      console.log('checking 1');
+      const { body } = req;
+      console.log(body);
       next();
     } catch (err) {
       res.status(401).send();

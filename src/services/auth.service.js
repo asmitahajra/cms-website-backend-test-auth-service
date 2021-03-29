@@ -5,6 +5,8 @@ const verifyToken = async (token) => {
     headers:
     { Authorization: `Bearer ${token}` },
   });
+  // console.log('Response from there');
+  // console.log(response.data);
   return response.data;
 };
 
