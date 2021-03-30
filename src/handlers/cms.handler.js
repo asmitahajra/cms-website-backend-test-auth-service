@@ -58,6 +58,84 @@ const getAllContentTypesHandler = async (req, res) => {
   res.status(200).send(replyObj);
 };
 
+const updateContentTypeHandler = async (req, res) => {
+  const contentId = req.params.id;
+  console.log(contentId);
+  const { body } = req;
+  console.log(body);
+  const updatedContent = await cmsServices.updateContentType(body, contentId);
+  console.log(updatedContent);
+  // const mockValue = [
+  //   1,
+  // ];
+
+  // const failedMockValue = [
+  //   0,
+  // ];
+  // if (updatedToDo.toString() === failedMockValue.toString()) {
+  //   // console.log('here');
+  //   return res.status(400).send('Failed to update todo');
+  // }
+  res.status(200).send(updatedContent);
+};
+
+// const getAllCollectionsHandler = async (req, res) => {
+//   // const { body } = req;
+//   const allCollections = await cmsServices.getAllCollections();
+//   const replyObj = {
+//     userInformation: req.userInformation,
+//     allContentTypes,
+//   };
+//   // console.log(body);
+//   if (allContentTypes.length === 0) return res.status(400).send('No Content Types');
+//   res.status(200).send(replyObj);
+// };
+
+const createInstanceHandler = async (req, res) => {
+  const collectionId = req.params.id;
+  console.log(collectionId);
+  const { body } = req;
+  console.log(body);
+  const createdInstance = await cmsServices.createAnInstance(body, collectionId);
+  console.log(createdInstance);
+  // const mockValue = [
+  //   1,
+  // ];
+
+  // const failedMockValue = [
+  //   0,
+  // ];
+  // if (updatedToDo.toString() === failedMockValue.toString()) {
+  //   // console.log('here');
+  //   return res.status(400).send('Failed to update todo');
+  // }
+  res.status(200).send(createdInstance);
+};
+
+const updateFieldInstanceHandler = async (req, res) => {
+  const contentId = req.params.id;
+  const { body } = req;
+  console.log('here');
+  console.log(body);
+  const updatedContent = await cmsServices.updateFieldInstance(body, contentId);
+
+  res.status(200).send(updatedContent);
+};
+
+const updateInstanceHandler = async (req, res) => {
+  const contentId = req.params.id;
+  const { body } = req;
+  console.log('here');
+  console.log(body);
+  const updatedContent = await cmsServices.updateInstance(body, contentId);
+  res.status(200).send(updatedContent);
+};
+
 module.exports = {
-  createContentTypeHandler, getAllContentTypesHandler,
+  createContentTypeHandler,
+  getAllContentTypesHandler,
+  updateContentTypeHandler,
+  createInstanceHandler,
+  updateFieldInstanceHandler,
+  updateInstanceHandler,
 };

@@ -18,6 +18,42 @@ const getAllContentTypes = async () => {
   return allContentTypes;
 };
 
+const updateContentType = async (body, contentId) => {
+  const { newField } = body;
+  const updatedContentType = await ContentType.update(
+    { fields: newField }, { where: { id: contentId }, returning: true },
+  );
+  return updatedContentType;
+};
+
+const createAnInstance = async (body, collectionId) => {
+  const { newInstances } = body;
+  const createdInstance = await ContentType.update(
+    { instances: newInstances }, { where: { id: collectionId }, returning: true },
+  );
+  return createdInstance;
+};
+
+const updateFieldInstance = async (body, contentId) => {
+  const { newFields, newInstances } = body;
+  const updatedContentType = await ContentType.update(
+    { fields: newFields, instances: newInstances }, { where: { id: contentId }, returning: true },
+  );
+  return updatedContentType;
+};
+
+const updateInstance = async (body, contentId) => {
+  const { newInstances } = body;
+  const updatedInstance = await ContentType.update(
+    { instances: newInstances }, { where: { id: contentId }, returning: true },
+  );
+  return updatedInstance;
+};
+
+// const getAllCollections= async()=> {
+//   const allCollections= await
+// }
+
 // const getDemos = async () => {
 //   const demos = await Demo.findAll();
 //   // console.log(todos);
@@ -25,5 +61,10 @@ const getAllContentTypes = async () => {
 // };
 
 module.exports = {
-  createContentType, getAllContentTypes,
+  createContentType,
+  getAllContentTypes,
+  updateContentType,
+  createAnInstance,
+  updateFieldInstance,
+  updateInstance,
 };

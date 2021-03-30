@@ -13,6 +13,9 @@ module.exports = {
       fields: {
         type: Sequelize.ARRAY(Sequelize.TEXT),
       },
+      instances: {
+        type: Sequelize.JSONB,
+      },
       createdAt: {
         allowNull: false,
         type: Sequelize.DATE,

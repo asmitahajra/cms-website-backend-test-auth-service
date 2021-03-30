@@ -16,6 +16,7 @@ module.exports = (sequelize, DataTypes) => {
   ContentType.init({
     name: DataTypes.STRING,
     fields: DataTypes.ARRAY(DataTypes.TEXT),
+    instances: DataTypes.JSONB,
   }, {
     sequelize,
     modelName: 'ContentType',
